@@ -1,0 +1,141 @@
+*{ margin: 0; padding: 0; list-style: none; } 
+		.conts{
+			position: relative;width:190px;height:260px;margin: 10px auto;border:3px solid #000000;background: #123456;
+		}
+		.wrap{ 
+			width: 180px; 
+			height: 180px; 
+			border: 3px solid #ccc; 
+			background: #fff;
+			border-radius: 50%; 
+			position: absolute; 
+			} 
+		.wrap ul{ position: relative; } 
+		.wrap ul li.lis{ 
+			width: 1px; 
+			height: 6px; 
+			background: #6C6C6C; 
+			position: absolute; 
+			left: 89px; 
+			top: 7px; 
+			transform-origin: center 83px;
+			-moz-transform-origin: center 83px; 
+			z-index: 999;
+			} 
+		.wrap ul li:nth-child(12n+1){ width:3px;height: 15px;background: #6C6C6C;z-index: 9999; } 
+		.con{ 
+			width: 10px; 
+			height: 10px; 
+			background: #000; 
+			border-radius: 50%; 
+			position: absolute; 
+			left:82px;
+			top:84px;
+			} 
+		#tex{
+				width: 150px; 
+				height: 150px; 
+				border-radius: 50%; 
+				position: absolute; 
+				top:25px;
+				left:27px;
+				z-index: 2;
+			}
+		#tex span{
+				display: block;
+				position: absolute; 
+				left: 34px; 
+				top: 0px; 
+				transform-origin: center 68px;
+				-moz-transform-origin: center 68px;
+				width:64px;
+				height:22px;
+				text-align: center;
+				font-size:8px;
+			}
+			
+		
+		
+		#min{ 
+			width: 3px; 
+			height: 85px; 
+			background: #000; 
+			border-radius: 50%; 
+			position: absolute; 
+			left: 85px; 
+			top: 19px; 
+			transform-origin: center 70px;
+			-moz-transform-origin: center 70px;
+			font-size: 12px; 
+			z-index: 999999;
+			} 	
+		
+		.time{
+			width: 65px; 
+			height: 20px; 
+			position: absolute; 
+			left:51px;
+			top:97px;
+			font-size: 12px;
+			text-align: center;
+			border:1px solid #ddd;
+		}	
+		.unit{
+			width: 50px; 
+			height: 20px; 
+			position: absolute; 
+			left:65px;
+			top:45px;
+			font-size: 12px;
+			text-align: center;
+			
+		}
+		.tips{
+			width:140px;
+			height:30px;
+			border:1px solid #7CB5EC;
+			background: #fff;
+			text-align: center;
+			line-height: 30px;
+			position: relative;
+			left:17px;
+			top:48px;
+			opacity: 0.6;
+			display: none;
+		}
+		.tips::after{
+			width: 0;
+			height:0;
+			content: '';
+			font-size: 0;
+			border: 8px solid transparent;
+            border-top: 8px solid #7CB5EC;
+            position: relative;
+            top: 15px;
+           
+		}
+		.tip_text{
+			font-size: 12px;
+		    line-height: 30px;
+		    position: relative;
+		    top: 15px;
+		    left: 17px;
+		    width: 140px;
+		    text-align: center;
+		    display: none;
+		}
+		.tip_circle{
+			width: 8px;
+		    height: 8px;
+		    border-radius: 50%;
+		    background: #7CB5EC;
+		    display: inline-block;
+		}
+		.fuyiTime{
+		    width:260px;margin:0 auto;text-align: center;color:#fff;
+		}
+	    #myCanvas{
+	    	position: absolute; 
+	    	left:3px;
+	    	top:3px;
+	    }

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<style type="text/css">
+	   *{
+	   	margin:0;
+	   	padding:0;
+	   }
+	   #box{
+	   	position: relative;
+	   	width:1000px;
+	   	height:300px;
+	   	border:1px solid #000000;
+	   }
+	   #box2{
+	   	position: relative;
+	   	width:1000px;
+	   	height:300px;
+	   	border:1px solid #000000;
+	   }
+	   .content{
+	   	border:1px solid #000000;
+	   	width:200px;
+	   	height:300px;
+	   	position: relative;
+	   }
+	   .circle{
+	   	width:80px;
+	   	height:80px;
+	   	border-radius: 50%;
+	   	background: #8cf377;
+	   	position: absolute;
+        bottom:5px;
+        left:60px;
+	   	z-index: 2;
+	   	text-align: center;
+	   }
+	   .circle h3{
+	   	 padding-top:20px;
+	   }
+	   .radiu-rect-green{
+	   	width:30px;
+	   	height:100px;
+	   	background: #8cf377;
+	   	position: absolute;
+        left: 86px;
+        bottom: 70px;
+	   }
+	     .circle_blue{
+	   		width:80px;
+	   	    height:80px;
+		   	border-radius: 50%;
+		   	background: #13a8dd;
+		   	position: absolute;
+	        bottom:5px;
+	        left:60px;
+		   	z-index: 2;
+		   	text-align: center;
+	   }
+	   .circle_blue h3{
+	   	 padding-top:20px;
+	   }
+	   .radiu-rect-blue{
+	   	    width: 30px;
+		    height: 100px;
+		    background: #13a8dd;
+		    position: absolute;
+		    left: 86px;
+		    bottom: 70px;
+	   }
+	   .radiu-rect-gray{
+	   	width:30px;
+	   	height:250px;
+	   	border-radius:20px;
+	   	background: #ddd;
+	   	position: relative;
+	   	left:86px;
+	   }
+	   
+	   .C1{
+	   	position: relative;
+	   	left:40px;
+	   	width:20px;
+	   	height:20px;
+	   }
+	   .C2{
+        position: relative;
+	   	left:139px;
+	   	width:20px;
+	   	height:20px;
+	   	bottom:272px;
+	   }
+	   .scale{
+	   	width:80px;
+	   	height:160px;
+	   	margin-top:20px;
+	   }
+	   .long_line{
+	   	 border-top:1px solid #000;
+	   	 width:30px;
+	   	 height:10px;
+	   }
+	   .tit{
+	   	width:90%;
+	   }
+	   .tit p{
+	  	width:20px;
+	  	height:10px;
+	  	border-top:1px solid #000;
+	  }
+	  .tit .textCon{
+	  	margin-top:-12px;
+	  	cursor: pointer;
+	  }
+	  .fl{
+	  	float:left;
+	  }
+	  .fr{
+	  	float: right;
+	  }
+	   .s2{
+	   	margin-top:-252px;
+	   }
+	</style>
+	<script type="text/javascript">
+	window.onload = function(){
+		$('.tit .textCon').click(function(){
+			var h = $(this).offset().top;
+			alert(h);
+		})
+	}
+</script>
+	</head>
+	<body>
+		<div id="box">
+			<div class="content fl">
+			   <div class="C1">℃</div>
+			   <div class="scale fl">
+			   	<div class="tit fr">
+			   		<span class="long_line fr"></span>
+			   		<span class='textCon fl'>20</span>
+			   	</div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr">
+			   		<span class="long_line fr"></span>
+			   		<span class='textCon fl'>10</span>
+			   	</div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr">
+			   		<span class="long_line fr"></span>
+			   		<span class='textCon fl'>0</span>
+			   	</div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	
+			   	
+			   </div>
+			   
+			   <div class="radiu-rect-gray"></div>
+			   <div class="circle">
+			   	  <h3>2017</h3>
+			   </div>
+			   <div class="C2"></div>
+			   <div class="scale fr s2">
+				   	<div class="tit fl">
+				   		<span class="long_line fl"></span>
+				   		<span class='textCon fr'>20</span>
+				   	</div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+			   	    <div class="tit fl">
+				   		<span class="long_line fl"></span>
+				   		<span class='textCon fr'>10</span>
+				   	</div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+			   	    <div class="tit fl">
+				   		<span class="long_line fl"></span>
+				   		<span class='textCon fr'>0</span>
+				   	</div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+			   </div>
+		    
+		    <div class="radiu-rect-green"></div>
+			
+			</div>
+		 <!-- 222 -->
+		   <div class="content fl">
+			   <div class="C1">℃</div>
+			   <div class="scale fl">
+			   	<div class="tit fr">
+			   		<span class="long_line fr"></span>
+			   		<span class='textCon fl'>20</span>
+			   	</div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr">
+			   		<span class="long_line fr"></span>
+			   		<span class='textCon fl'>0</span>
+			   	</div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr">
+			   		<span class="long_line fr"></span>
+			   		<span class='textCon fl'>-20</span>
+			   	</div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	
+			   	
+			   </div>
+			   
+			   <div class="radiu-rect-gray"></div>
+			   <div class="circle_blue"></div>
+			   <div class="C2"></div>
+			   <div class="scale fr s2">
+				   	<div class="tit fl">
+				   		<span class="long_line fl"></span>
+				   		<span class='textCon fr'>20</span>
+				   	</div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+			   	    <div class="tit fl">
+				   		<span class="long_line fl"></span>
+				   		<span class='textCon fr'>0</span>
+				   	</div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+			   	    <div class="tit fl">
+				   		<span class="long_line fl"></span>
+				   		<span class='textCon fr'>-20</span>
+				   	</div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+			   </div>
+		    
+		    <div class="radiu-rect-blue"></div>
+			
+			</div>
+			
+			<!-- 333 -->
+		   <div class="content fl">
+			   <div class="C1">℃</div>
+			   <div class="scale fl">
+			   	<div class="tit fr">
+			   		<span class="long_line fr"></span>
+			   		<span class='textCon fl'>20</span>
+			   	</div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr">
+			   		<span class="long_line fr"></span>
+			   		<span class='textCon fl'>0</span>
+			   	</div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr">
+			   		<span class="long_line fr"></span>
+			   		<span class='textCon fl'>-20</span>
+			   	</div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	
+			   	
+			   </div>
+			   
+			   <div class="radiu-rect-gray"></div>
+			   <div class="circle"></div>
+			   <div class="C2"> </div>
+			   <div class="scale fr s2">
+				   	<div class="tit fl">
+				   		<span class="long_line fl"></span>
+				   		<span class='textCon fr'>20</span>
+				   	</div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+			   	    <div class="tit fl">
+				   		<span class="long_line fl"></span>
+				   		<span class='textCon fr'>0</span>
+				   	</div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+			   	    <div class="tit fl">
+				   		<span class="long_line fl"></span>
+				   		<span class='textCon fr'>-20</span>
+				   	</div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+			   </div>
+		    
+		    <div class="radiu-rect-green"></div>
+			
+			</div>
+		    <!-- 444 -->
+		   <div class="content fl">
+			   <div class="C1">℃</div>
+			   <div class="scale fl">
+			   	<div class="tit fr">
+			   		<span class="long_line fr"></span>
+			   		<span class='textCon fl'>20</span>
+			   	</div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr">
+			   		<span class="long_line fr"></span>
+			   		<span class='textCon fl'>0</span>
+			   	</div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr">
+			   		<span class="long_line fr"></span>
+			   		<span class='textCon fl'>-20</span>
+			   	</div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	<div class="tit fr"><p class="fr"></p></div>
+			   	
+			   	
+			   </div>
+			   
+			   <div class="radiu-rect-gray"></div>
+			   <div class="circle_blue"></div>
+			   <div class="C2"> F</div>
+			   <div class="scale fr s2">
+				   	<div class="tit fl">
+				   		<span class="long_line fl"></span>
+				   		<span class='textCon fr'>20</span>
+				   	</div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+			   	    <div class="tit fl">
+				   		<span class="long_line fl"></span>
+				   		<span class='textCon fr'>0</span>
+				   	</div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+			   	    <div class="tit fl">
+				   		<span class="long_line fl"></span>
+				   		<span class='textCon fr'>-20</span>
+				   	</div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+				   	<div class="tit fl"><p class="fl"></p></div>
+			   </div>
+		    
+		    <div class="radiu-rect-blue"></div>
+			
+			</div>
+			
+		    
+		    
+		</div>
+	</body>
+</html>

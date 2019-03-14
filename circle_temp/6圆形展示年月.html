@@ -1,0 +1,376 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<meta charset="UTF-8"> 
+		<title></title> 
+		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+		<style type="text/css" id="sty"> 
+		*{ margin: 0; padding: 0; list-style: none; } 
+		#container{
+			position: relative;width:260px;height:260px;margin: 10px auto;border:3px solid #000000;
+		}
+		#wrap{ 
+			width: 180px; 
+			height: 180px; 
+			border: 3px solid #ccc; 
+			background: #fff;
+			border-radius: 50%; 
+			position: absolute; 
+			} 
+		#wrap ul{ position: relative; } 
+		#wrap ul li{ 
+			width: 1px; 
+			height: 6px; 
+			background: #6C6C6C; 
+			position: absolute; 
+			left: 89px; 
+			top: 7px; 
+			transform-origin: center 83px;
+			-moz-transform-origin: center 83px; 
+			z-index: 999;
+			} 
+		#wrap ul li:nth-child(12n+1){ width:3px;height: 15px;background: #6C6C6C;z-index: 9999; } 
+		#con{ 
+			width: 10px; 
+			height: 10px; 
+			background: #000; 
+			border-radius: 50%; 
+			position: absolute; 
+			left:82px;
+			top:84px;
+			} 
+		#tex{
+				width: 150px; 
+				height: 150px; 
+				border-radius: 50%; 
+				position: absolute; 
+				top:25px;
+				left:27px;
+				z-index: 2;
+			}
+		#tex span{
+				display: block;
+				position: absolute; 
+				left: 34px; 
+				top: 0px; 
+				transform-origin: center 68px;
+				-moz-transform-origin: center 68px;
+				width:64px;
+				height:22px;
+				text-align: center;
+				font-size:12px;
+			}
+			
+		#gre{ 
+				width: 200px; 
+				height: 200px; 
+				border: 0px solid #55BF3B; 
+				border-radius: 50%; 
+				position: absolute; 
+				top:3px;
+				left:0;
+				
+			} 
+		#gre ul{ position: relative; } 
+		#gre ul li{ 
+				width: 10px; 
+				height: 10px; 
+				background: #55BF3B; 
+				position: absolute; 
+				left: 86px; 
+				top: 8px; 
+				transform-origin: center 83px;
+				-moz-transform-origin: center 83px; 
+				z-index: 1;
+			} 
+		#yell{ 
+				width: 200px; 
+				height: 200px; 
+				border: 0px solid #DDDF0D; 
+				border-radius: 50%; 
+				position: absolute; 
+				top:3px;
+				left:-5px;
+			} 
+		#yell ul{ position: relative; } 
+		#yell ul li{ 
+				width: 10px; 
+				height: 10px; 
+				background: #DDDF0D; 
+				position: absolute; 
+				left: 92px; 
+				top: 6px; 
+				transform-origin: center 83px;
+				-moz-transform-origin: center 83px; 
+				
+			} 
+		#red{ 
+				width: 200px; 
+				height: 200px; 
+				border: 0px solid #DF5353; 
+				border-radius: 50%; 
+				position: absolute; 
+				top:3px;
+				left:-5px;
+			} 
+		#red ul{ position: relative; } 
+		#red ul li{ 
+				width: 10px; 
+				height: 10px; 
+				background: #DF5353; 
+				position: absolute; 
+				left: 94px; 
+				top: 7px; 
+				transform-origin: center 83px;
+				-moz-transform-origin: center 83px; 
+				
+			} 
+		#min{ 
+			width: 3px; 
+			height: 85px; 
+			background: #000; 
+			border-radius: 50%; 
+			position: absolute; 
+			left: 85px; 
+			top: 19px; 
+			transform-origin: center 70px;
+			-moz-transform-origin: center 70px;
+			font-size: 12px; 
+			z-index: 999999;
+			} 	
+		
+		#time{
+			width: 65px; 
+			height: 20px; 
+			position: absolute; 
+			left:51px;
+			top:97px;
+			font-size: 12px;
+			text-align: center;
+			border:1px solid #ddd;
+		}	
+		#unit{
+			width: 50px; 
+			height: 20px; 
+			position: absolute; 
+			left:65px;
+			top:45px;
+			font-size: 12px;
+			text-align: center;
+			
+		}
+		.tips{
+			width:140px;
+			height:30px;
+			border:1px solid #7CB5EC;
+			background: #fff;
+			text-align: center;
+			line-height: 30px;
+			position: relative;
+			left:17px;
+			top:48px;
+			opacity: 0.6;
+			display: none;
+		}
+		.tips::after{
+			width: 0;
+			height:0;
+			content: '';
+			font-size: 0;
+			border: 8px solid transparent;
+            border-top: 8px solid #7CB5EC;
+            position: relative;
+            top: 15px;
+           
+		}
+		.tip_text{
+			font-size: 12px;
+		    line-height: 30px;
+		    position: relative;
+		    top: 15px;
+		    left: 17px;
+		    width: 140px;
+		    text-align: center;
+		    display: none;
+		}
+		.tip_circle{
+			width: 8px;
+		    height: 8px;
+		    border-radius: 50%;
+		    background: #7CB5EC;
+		    display: inline-block;
+		}
+		.fuyiTime{
+		    width:260px;margin:0 auto;text-align: center;color:#fff;
+		}
+		</style>
+		<script type="text/javascript">
+         window.onload=function(){
+	        var oList=document.getElementById('list');
+	        var oSty=document.getElementById('sty');
+	 
+	        var max=2015;
+	        var min=2010;
+	        //整个圆盘所有的显示刻度
+	        var scale = (max-min)*12+1;
+	        //根据最大值与最小值的差，算出不同数据展示所需要的每一个刻度的角度。
+	        var angles = 300/scale;
+	        var tump='';
+	       for(var i=1;i<=scale;i++){
+	            var aLi=document.createElement('li');
+	            oList.appendChild(aLi);
+	            
+	            tump+='#wrap ul li:nth-child('+i+'){transform: rotate('+(205+i * angles)+'deg);}';
+	            oSty.innerHTML+=tump;
+	        }
+	        
+	        var tex = '';
+	        //计算出大节点个数
+	        var nodes = (max-min)+1;
+	        //每个节点所旋转的角度
+	        var Ang = 300/(nodes-1);
+	        for(var i = 1;i<=nodes;i++){
+	            tex+='#tex span:nth-child('+i+'){transform: rotate('+(210+(i-1)*Ang)+'deg);}';
+	            oSty.innerHTML+=tex;
+	        }
+
+        //创建大刻度值
+          function node(){
+          	for(var i = 0;i<nodes;i++){
+          		$('#tex').append('<span>'+(min+i)+'年'+'</span>');
+          	}
+          };
+          node();
+          
+          //当前时间的设定
+          var year = 2011;
+          var mon = 8;
+		var Time = 'year年mon月';
+	    //当前时间转化为刻度,当前时间减去最小值（起始时间）乘以12个月再加上当前时间所示月份。times =(2011-2010)*12+8-1,注：刻度是从1算起的.
+		var Tims = (year-min)*12+ (mon-1);
+		var TimAng = Tims * angles+210;
+		$('#min').css({'transform':"rotate("+TimAng+"deg)"});
+ 
+		
+		function green(){
+		        var gList = document.getElementById('gr_list');
+	            var gre = '';
+		        var start=0; //起始点
+		        var end=20; //结束点
+		        //所显示的刻度数
+		        var cn = end-start;
+		        //起始点与原始起点所差角度,每个角度为angles度
+		        var chadu = start*angles+210;
+		        for(var i=0;i<cn;i++){
+		        		var gLi=document.createElement('li');
+					    gList.appendChild(gLi);
+					    gre+='#gre ul li:nth-child('+(i+1)+'){transform: rotate('+(i * angles+chadu)+'deg);}';
+					    oSty.innerHTML+=gre;
+
+
+		        }
+			        
+		}
+		green();
+		
+		function yellow(){
+		        var yList = document.getElementById('yell_list');
+		        var yell = '';
+		        var start=20; //起始点
+		        var end=35; //结束点
+		        //所显示的刻度数
+		        var cn = end-start;
+		        //起始点与原始起点所差角度,每个角度为angles度
+		        var chadu = start*angles+210;
+		        for(var i=0;i<=cn;i++){
+		        		 var yLi=document.createElement('li');
+					     yList.appendChild(yLi);
+					     yell+='#yell ul li:nth-child('+(i+1)+'){transform: rotate('+(i * angles+chadu)+'deg);}';
+					     oSty.innerHTML+=yell;
+					     
+		        }
+			        
+		}
+		yellow();
+		
+        function red(){
+		        var rList = document.getElementById('red_list');
+		        var red = '';
+		        var start=35; //起始点
+		        var end=45; //结束点
+		        //所显示的刻度数
+		        var cn = end-start;
+		        //起始点与原始起点所差角度,每个角度为angles度
+		        var chadu = start*angles+210;
+		        for(var i=0;i<=cn;i++){
+		        		var rLi=document.createElement('li');
+		                rList.appendChild(rLi);
+					    red+='#red ul li:nth-child('+(i+1)+'){transform: rotate('+(i * angles+chadu)+'deg);}';
+		                oSty.innerHTML+=red;
+		                
+		        }
+			        
+		}
+		red();
+		 
+       
+       //鼠标放在指针上的悬浮效果
+       $(function(){
+       	   $('#min').mouseover(function(){
+			  show();
+		   });
+		   $('#min').mouseout(function(){
+			  setInterval(hide,5000);
+		   });
+		   
+		   function show(){
+		   	  $('.tips').css('display','block');
+			  $('.tip_text').css('display','block');
+		   }
+		   function hide(){
+		   	  $('.tips').css('display','none');
+			  $('.tip_text').css('display','none');
+		   }
+		   
+       })
+		
+       
+       
+       
+      }
+         
+</script>
+	</head> 
+	<body style="background: #000079;"> 
+		<div class='fuyiTime'>服役时间</div>
+		<div id='container'>
+			
+			<div id="tex"></div>	
+			<div id="wrap"> 
+				<ul id="list"> </ul> 
+				<div id="con"></div> 
+				<div id="min"></div> 
+				<div id='time'>2011年8月</div>
+				<div id='unit'>年/月</div>
+				<div class="tips"></div>
+				<div class="tip_text">
+					<span class="tip_circle"></span>
+					当前时间：<span style='font-weight: bold;'>2011年8月</span>
+				</div>
+		   </div> 
+		   <div id="gre">
+		   	 <ul id="gr_list" > </ul>
+		   </div>
+		   <div id='yell'>
+		   	  <ul id="yell_list"></ul>
+		   </div>
+		   <div id='red'>
+		   	  <ul id="red_list"></ul>
+		   </div>
+		   
+		</div>
+		
+		
+		
+	</body> 
+</html>

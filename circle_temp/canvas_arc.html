@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+		//根据角度得到旋转的弧度
+		function getRads(deg){
+		  return (Math.PI * deg)/180;
+		}
+		//定义canvas
+		var myCanvas=document.getElementById("myCanvas");
+		var ctx=myCanvas.getContext("2d");
+		
+		function drawScreen () { 
+			// x,y => 圆心坐标点 
+			// r => 圆弧半径著作权归作者所有。
+			var arc = { 
+				x: myCanvas.width / 2, 
+				y: myCanvas.height / 2, 
+				r: 100 
+			}, 
+				w = myCanvas.width, 
+				h = myCanvas.height; 
+		    ctx.save();
+			ctx.lineWidth = 10; 
+			// 绿色区域
+			ctx.strokeStyle = '#55BF3B'; 
+			ctx.beginPath(); 
+			ctx.arc(arc.x, arc.y, arc.r,getRads(-45),getRads(45)); 
+			ctx.stroke();
+			
+			// 黄色区域逆时针旋转
+			ctx.beginPath();
+			ctx.strokeStyle = "#DDDF0D";
+			ctx.arc(arc.x, arc.y, arc.r,getRads(-135),getRads(135),true); 
+			ctx.stroke();
+			
+			// 红色区域逆时针旋转
+			ctx.beginPath();
+			ctx.strokeStyle = "#DF5353";
+			ctx.arc(arc.x, arc.y, arc.r,getRads(135),getRads(100),true); 
+			ctx.stroke();
+			
+			ctx.restore();
+		}
+		drawScreen ();
+			})
+		
+
+		</script>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;">
+		  Your browser does not support the HTML5 canvas tag.
+		</canvas>
+	</body>
+</html>

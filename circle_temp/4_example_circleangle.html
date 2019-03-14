@@ -1,0 +1,78 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<meta charset="UTF-8"> 
+		<title></title> 
+		<style type="text/css" id="sty"> 
+		*{ margin: 0; padding: 0; list-style: none; } 
+		#wrap{ 
+			width: 200px; 
+			height: 200px; 
+			border: 3px solid #ddd; 
+			border-radius: 50%; 
+			position: absolute; 
+			} 
+		#wrap ul{ position: relative; } 
+		#wrap ul li{ 
+			width: 2px; 
+			height: 95px; 
+			background: #000; 
+			position: absolute; 
+			left: 99px; 
+			top: 0; 
+			transform-origin: center 100px;
+			-moz-transform-origin: center 100px; 
+			} 
+		
+		#con{ 
+			width: 10px; 
+			height: 10px; 
+			background: #000; 
+			border-radius: 50%; 
+			position: absolute; 
+			left:95px;
+			top:95px;
+			} 
+			
+		
+		</style>
+		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				 function green(){
+			        var oList=document.getElementById('list');
+			        var oSty=document.getElementById('sty');
+			 
+			        var start=0; //起始点
+			        var end=40; //结束点
+			        //所显示的刻度数
+			        var cn = end-start;
+			        //起始点与原始起点所差角度,假如每个角度为6度
+			        var chadu = start*6;
+			        var tump='';
+			        for(var i=0;i<=cn;i++){
+			        		var aLi=document.createElement('li');
+				            oList.appendChild(aLi);
+				            tump += '#wrap ul li:nth-child('+(i+1)+'){transform: rotate('+(i*6+chadu)+'deg);}';
+				            oSty.innerHTML += tump;
+				            console.log(tump);
+			        }
+			        
+			    }
+			    green();
+			})
+   
+</script>
+	</head> 
+	<body> 
+		<div style='position: relative;border:2px solid #000;width: 300px;height:300px;margin: 20px auto;'>
+			<div id="wrap"> 
+				<ul id="list"> 
+				</ul> 
+				<p id="con"></p> 
+		   </div> 
+		</div>
+		
+		
+	</body> 
+</html>

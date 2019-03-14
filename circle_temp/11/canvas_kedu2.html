@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+		<style type='text/css'>
+			#myCanvas2{
+				border:1px solid #000;
+			}
+		</style>
+		<script type="text/javascript">
+			$(function(){
+				var canvas = document.getElementById('myCanvas2');
+				var ctx = canvas.getContext('2d');
+				
+				// 秒针角度  
+				var deg=Math.PI*2/60;  
+				//画表盘  
+				function watch(){  
+				    ctx.beginPath();  
+				    ctx.arc(250,250,250,0,Math.PI*2);  
+				    ctx.lineWidth=10;  
+				    ctx.stroke();  
+				    ctx.beginPath();  
+				    // 画分针刻度  
+				    for(var i=0;i<60;i++){  
+				        ctx.save();  
+				        ctx.lineWidth=1;  
+				    //把基点设置为圆心  
+				        ctx.translate(canvas.width/2,canvas.height/2);  
+				        ctx.rotate(deg*i);  
+				        ctx.moveTo(canvas.width/2 ,0);  
+				        ctx.lineTo(canvas.width/2-20,0);  
+				        ctx.stroke();  
+				        ctx.restore();        
+				    }  
+				    //画时针刻度  
+				    ctx.beginPath();  
+				        for(var i=0;i<12;i++){  
+				        ctx.save();  
+				        ctx.lineWidth=4;  
+				        ctx.translate(canvas.width/2,canvas.height/2);  
+				        ctx.rotate(Math.PI*2/12*i);  
+				        ctx.moveTo(canvas.width/2 ,0);  
+				        ctx.lineTo(canvas.width/2-30,0);  
+				        ctx.stroke();  
+				        ctx.restore();        
+				    }  
+				}  
+				function Pointer(deg,Lwidth,color,mwidth){  
+				    ctx.beginPath();  
+				    ctx.save();  
+				    ctx.translate(canvas.width/2,canvas.height/2);  
+				    ctx.rotate(deg);                    //旋转角度  
+				    ctx.strokeStyle=color;              //颜色  
+				    ctx.lineWidth=Lwidth;               //指针宽度    
+				    ctx.moveTo(0,-mwidth);              //指针半径  
+				    ctx.lineTo(0,0);  
+				    ctx.stroke();  
+				    ctx.restore();  
+				}  
+				var i=0;  
+				//获取时间，给指针一个初始角度  
+				var nowDate=new Date();  
+				var houer=(12+nowDate.getHours())%12*(Math.PI*2/12);  
+				var minutes=nowDate.getMinutes()*(deg);  
+				var Seconds=nowDate.getSeconds()*(deg);  
+				setInterval(function(){  
+				    i++;  
+				    ctx.clearRect(0,0,500,500);  
+				    watch();  
+				    //秒针运动  
+				    Pointer(deg*i+Seconds,1,"red",canvas.width/2-40);  
+				    //分针运动  
+				    Pointer(deg/60*i+minutes,4,"purple",canvas.width/2-70);  
+				    //时针运动  
+				    Pointer(deg/60/60/12*i+houer,6,"#000",canvas.width/2-70);  
+				},1000) 		
+				
+	        })
+		</script>
+	</head>
+	<body>
+		<canvas id="myCanvas2" width="500" height="500"></canvas>
+		
+	</body>
+</html>

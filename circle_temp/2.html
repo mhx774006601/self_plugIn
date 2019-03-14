@@ -1,0 +1,133 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<meta charset="UTF-8"> 
+		<title></title> 
+		<style type="text/css" id="sty"> 
+		*{ margin: 0; padding: 0; list-style: none; } 
+		#wrap{ 
+			width: 200px; 
+			height: 200px; 
+			border: 3px solid #ddd; 
+			border-radius: 50%; 
+			position: absolute; 
+			} 
+		#wrap ul{ position: relative; } 
+		#wrap ul li{ 
+			width: 2px; 
+			height: 6px; 
+			background: #000; 
+			position: absolute; 
+			left: 99px; 
+			top: 0; 
+			transform-origin: center 100px;
+			-moz-transform-origin: center 100px; 
+			} 
+		#wrap ul li:nth-child(5n){ width:4px;height: 15px;background: blueviolet; } 
+		
+		#wrap ul li span{
+			    border: 1px solid #f00;
+			    position: relative;
+			    top: 16px;
+			    right: 10px;
+		}
+		
+		#con{ 
+			width: 10px; 
+			height: 10px; 
+			background: #000; 
+			border-radius: 50%; 
+			position: absolute; 
+			left:95px;
+			top:95px;
+			} 
+		#hour{ 
+			width: 5px; 
+			height: 70px; 
+			background: red; 
+			border-radius: 50%; 
+			position: absolute; 
+			left: 98px; 
+			top: 35px; 
+			transform-origin: center 65px; 
+			-moz-transform-origin: center 65px; 
+			} 
+		#min{ 
+			width: 3px; 
+			height: 85px; 
+			background: #000; 
+			border-radius: 50%; 
+			position: absolute; 
+			left: 98.5px; 
+			top: 20px; 
+			transform-origin: center 80px;
+			-moz-transform-origin: center 80px; 
+			} 
+		#sec{ 
+			width: 2px; 
+			height: 100px; 
+			background: gray; 
+			border-radius: 50%; 
+			position: absolute; 
+			left: 98.5px; 
+			top: 20px; 
+			transform-origin: center 80px; 
+			-moz-transform-origin: center 80px; 
+			} 
+			
+			
+		</style>
+		<script type="text/javascript">
+    window.onload=function(){
+        var oWrap=document.getElementById('wrap');
+        var oList=document.getElementById('list');
+        var oSty=document.getElementById('sty');
+        
+ 
+        var tump='';
+ 
+        for(var i=0;i<60;i++){
+            var aLi=document.createElement('li');
+            oList.appendChild(aLi);
+             
+            tump+='#wrap ul li:nth-child('+(i+1)+'){transform: rotate('+(i+1)*6+'deg);}';
+            oSty.innerHTML+=tump;
+            
+        }
+        
+        
+ 
+        var oSec=document.getElementById('sec');
+        var oMin=document.getElementById('min');
+        var oHour=document.getElementById('hour');
+        function time(){
+            var date=new Date();
+            var s=date.getSeconds();
+            var m=date.getMinutes()+(s/60);
+            var h=date.getHours()+(m/60);
+   
+            oSec.style.transform='rotate('+s*6+'deg)';
+            oMin.style.transform='rotate('+m*6+'deg)';
+            oHour.style.transform='rotate('+h*30+'deg)';
+        }
+        time();
+   
+        setInterval(time,1000);
+    }
+</script>
+	</head> 
+	<body> 
+		<div style='position: relative;border:2px solid #000;width: 300px;height:300px;margin: 20px auto;'>
+			<div id="wrap"> 
+				<ul id="list"> 
+				</ul> 
+				<p id="hour"></p> 
+				<p id="min"></p> 
+				<p id="sec"></p> 
+				<p id="con"></p> 
+		   </div> 
+		</div>
+		
+		
+	</body> 
+</html>

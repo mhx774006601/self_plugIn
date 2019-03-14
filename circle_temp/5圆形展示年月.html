@@ -1,0 +1,293 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<meta charset="UTF-8"> 
+		<title></title> 
+		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+		<style type="text/css" id="sty"> 
+		*{ margin: 0; padding: 0; list-style: none; } 
+		#container{
+			position: relative;width:300px;height:300px;margin: 20px auto;
+		}
+		#wrap{ 
+			width: 200px; 
+			height: 200px; 
+			border: 3px solid #0e0d07; 
+			border-radius: 50%; 
+			position: absolute; 
+			} 
+		#wrap ul{ position: relative; } 
+		#wrap ul li{ 
+			width: 1px; 
+			height: 6px; 
+			background: #0e0d07; 
+			position: absolute; 
+			left: 99px; 
+			top: 0; 
+			transform-origin: center 100px;
+			-moz-transform-origin: center 100px; 
+			z-index: 9999;
+			} 
+		#wrap ul li:nth-child(12n){ width:3px;height: 15px;background: #0e0d07;z-index: 9999; } 
+		
+		#con{ 
+			width: 10px; 
+			height: 10px; 
+			background: #000; 
+			border-radius: 50%; 
+			position: absolute; 
+			left:95px;
+			top:95px;
+			} 
+		#tex{
+				width: 150px; 
+				height: 150px; 
+				border-radius: 50%; 
+				position: absolute; 
+				top:25px;
+				left:27px;
+				z-index: 2;
+			}
+		#tex span{
+				display: block;
+				position: absolute; 
+				left: 43px; 
+				top: -5px; 
+				transform-origin: center 80px;
+				-moz-transform-origin: center 80px;
+				width:64px;
+				height:22px;
+				text-align: center;
+				
+			}
+			
+		#gre{ 
+				width: 200px; 
+				height: 200px; 
+				border: 0px solid #008000; 
+				border-radius: 50%; 
+				position: absolute; 
+				top:3px;
+				left:0;
+				
+			} 
+		#gre ul{ position: relative; } 
+		#gre ul li{ 
+				width: 10px; 
+				height: 10px; 
+				background: #41f425; 
+				position: absolute; 
+				left: 98px; 
+				top: 0; 
+				transform-origin: center 100px;
+				-moz-transform-origin: center 100px; 
+				z-index: 1;
+			} 
+		#yell{ 
+				width: 200px; 
+				height: 200px; 
+				border: 0px solid yellow; 
+				border-radius: 50%; 
+				position: absolute; 
+				top:3px;
+				left:-5px;
+			} 
+		#yell ul{ position: relative; } 
+		#yell ul li{ 
+				width: 10px; 
+				height: 10px; 
+				background: #ede126; 
+				position: absolute; 
+				left: 103px; 
+				top: 0; 
+				transform-origin: center 100px;
+				-moz-transform-origin: center 100px; 
+				opacity: 0.5;
+			} 
+		#red{ 
+				width: 200px; 
+				height: 200px; 
+				border: 0px solid red; 
+				border-radius: 50%; 
+				position: absolute; 
+				top:3px;
+				left:-5px;
+			} 
+		#red ul{ position: relative; } 
+		#red ul li{ 
+				width: 10px; 
+				height: 10px; 
+				background: red; 
+				position: absolute; 
+				left: 103px; 
+				top: 0; 
+				transform-origin: center 100px;
+				-moz-transform-origin: center 100px; 
+				opacity: 0.5;
+			} 
+		#min{ 
+			width: 3px; 
+			height: 85px; 
+			background: #000; 
+			border-radius: 50%; 
+			position: absolute; 
+			left: 98.5px; 
+			top: 20px; 
+			transform-origin: center 80px;
+			-moz-transform-origin: center 80px;
+			font-size: 12px; 
+			} 	
+		
+		#time{
+			width: 65px; 
+			height: 20px; 
+			position: absolute; 
+			left:65px;
+			top:106px;
+			font-size: 12px;
+			text-align: center;
+		}	
+		</style>
+		<script type="text/javascript">
+         window.onload=function(){
+	        var oList=document.getElementById('list');
+	        var oSty=document.getElementById('sty');
+	 
+	        var max=2014;
+	        var min=2010;
+	        //整个圆盘所有的显示刻度
+	        var scale = ((max-min)+1)*12;
+	        //根据最大值与最小值的差，算出不同数据展示所需要的每一个刻度的角度。
+	        var angles = 360/scale;
+	        var tump='';
+	       for(var i=0;i<scale;i++){
+	            var aLi=document.createElement('li');
+	            oList.appendChild(aLi);
+	            
+	            tump+='#wrap ul li:nth-child('+(i+1)+'){transform: rotate('+(i+1) * angles+'deg);}';
+	            oSty.innerHTML+=tump;
+	        }
+	        
+	        var tex = '';
+	        //计算出大节点个数
+	        var nodes = (max-min)+1;
+	        //每个节点所旋转的角度
+	        var Ang = 360/nodes;
+	        for(var i = 1;i<nodes;i++){
+	            tex+='#tex span:nth-child('+i+'){transform: rotate('+(i*Ang)+'deg);}';
+	            oSty.innerHTML+=tex;
+	        }
+
+        //创建大刻度值
+          function node(){
+          	for(var i = 0;i<nodes;i++){
+          		$('#tex').append('<span>'+(min+i)+'年'+'</span>');
+          	}
+          };
+          node();
+          
+          //当前时间的设定
+          var year = 2011;
+          var mon = 8;
+		var Time = 'year年mon月';
+	    //当前时间转化为刻度,当前时间减去最小值（起始时间）乘以12个月再加上当前时间所示月份。times =(2011-2010+1)*12+8
+		var Tims = (year-min+1)*12+ mon;
+		var TimAng = Tims * angles;
+		//$('#min').css('transform','rotate(137.6deg)');
+		$('#min').css({'transform':"rotate("+TimAng+"deg)"});
+ 
+		
+		function green(){
+		        var gList = document.getElementById('gr_list');
+	            var gre = '';
+		 
+		        var start=0; //起始点
+		        var end=40; //结束点
+		        //所显示的刻度数
+		        var cn = end-start;
+		        //起始点与原始起点所差角度,每个角度为angles度
+		        var chadu = start*angles;
+		        for(var i=0;i<=cn;i++){
+		        		var gLi=document.createElement('li');
+					    gList.appendChild(gLi);
+					    gre+='#gre ul li:nth-child('+(i+1)+'){transform: rotate('+(i * angles+chadu)+'deg);}';
+					    oSty.innerHTML+=gre;
+
+
+		        }
+			        
+		}
+		green();
+		
+		function yellow(){
+		        var yList = document.getElementById('yell_list');
+		        var yell = '';
+		 
+		        var start=40; //起始点
+		        var end=50; //结束点
+		        //所显示的刻度数
+		        var cn = end-start;
+		        //起始点与原始起点所差角度,每个角度为angles度
+		        var chadu = start*angles;
+		        for(var i=0;i<=cn;i++){
+		        		 var yLi=document.createElement('li');
+					     yList.appendChild(yLi);
+					     yell+='#yell ul li:nth-child('+(i+1)+'){transform: rotate('+(i * angles+chadu)+'deg);}';
+					     oSty.innerHTML+=yell;
+					     
+		        }
+			        
+		}
+		yellow();
+		
+        function red(){
+		        var rList = document.getElementById('red_list');
+		        var red = '';
+		 
+		        var start=50; //起始点
+		        var end=75; //结束点
+		        //所显示的刻度数
+		        var cn = end-start;
+		        //起始点与原始起点所差角度,每个角度为angles度
+		        var chadu = start*angles;
+		        for(var i=0;i<=cn;i++){
+		        		var rLi=document.createElement('li');
+		                rList.appendChild(rLi);
+					    red+='#red ul li:nth-child('+(i+1)+'){transform: rotate('+(i * angles+chadu)+'deg);}';
+		                oSty.innerHTML+=red;
+		                
+		        }
+			        
+		}
+		red();
+		 
+		
+       
+      }
+</script>
+	</head> 
+	<body> 
+		<div id='container'>
+			<div id="tex"></div>	
+			<div id="wrap"> 
+				<ul id="list"> </ul> 
+				<p id="con"></p> 
+				<p id="min"></p> 
+				<p id='time'>2011年8月</p>
+		   </div> 
+		   <div id="gre">
+		   	 <ul id="gr_list" > </ul>
+		   </div>
+		   <div id='yell'>
+		   	  <ul id="yell_list"></ul>
+		   </div>
+		   <div id='red'>
+		   	  <ul id="red_list"></ul>
+		   </div>
+		   
+		</div>
+		
+		
+		
+	</body> 
+</html>

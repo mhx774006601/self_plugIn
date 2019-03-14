@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//根据角度得到旋转的弧度
+				function getRads(deg){
+				  return (Math.PI * deg)/180;
+				}
+				//定义canvas
+				var myCanvas=document.getElementById("myCanvas");
+				var ctx=myCanvas.getContext("2d");
+				function drawScreen () { 
+				// x,y => 圆心坐标点 
+				// r => 圆弧半径著作权归作者所有。
+				var arc = { 
+					x: myCanvas.width / 2, 
+					y: myCanvas.height / 2, 
+					r: 80 
+				}, 
+					w = myCanvas.width, 
+					h = myCanvas.height; 
+			    ctx.save();
+				ctx.lineWidth = 10; 
+				// 绿色区域
+				ctx.strokeStyle = '#55BF3B'; 
+				ctx.beginPath(); 
+				ctx.arc(arc.x, arc.y, arc.r,getRads(30),getRads(60)); 
+				ctx.stroke();
+				/*for(var i = 0,l = 5; i < 5; i++){
+				        ctx.save();
+				        ctx.translate(85,85);
+				        ctx.rotate(i* (1/5) * 5/3*Math.PI-(2/3*Math.PI));  
+				        ctx.beginPath();
+				        ctx.lineWidth = 3;
+				        ctx.strokeStyle = '#333';
+				        ctx.moveTo(0,-75);
+				        ctx.lineTo(0,-65);
+				        ctx.stroke();
+				        ctx.closePath();
+				        ctx.restore();
+				    }*/
+				   for(var i = 0,l = 60; i < 60; i++){
+				        ctx.save();
+				        ctx.translate(85,85);
+				        ctx.rotate(i*1/60*2*Math.PI-(i* (1/60) * 2/3*Math.PI)-(2/3*Math.PI));
+				        ctx.beginPath();
+				        ctx.lineWidth = 1;
+				        ctx.strokeStyle = '#333';
+				        ctx.moveTo(0,-75);
+				        ctx.lineTo(0,-70);
+				        ctx.stroke();
+				        ctx.closePath();
+				        ctx.restore();
+				    }
+				
+				// 黄色区域
+				ctx.beginPath();
+				ctx.strokeStyle = "#DDDF0D";
+				ctx.arc(arc.x, arc.y, arc.r,getRads(60),getRads(90)); 
+				ctx.stroke();
+				
+				// 红色区域
+				ctx.beginPath();
+				ctx.strokeStyle = "#DF5353";
+				ctx.arc(arc.x, arc.y, arc.r,getRads(90),getRads(120)); 
+				ctx.stroke();
+				
+				ctx.restore();
+			}
+			drawScreen();
+			
+			
+			})
+			
+		</script>
+	</head>
+	<body>
+		 <canvas id="myCanvas" width="180" height="180">
+				   Your browser does not support the HTML5 canvas tag.
+		   </canvas>
+	</body>
+</html>
